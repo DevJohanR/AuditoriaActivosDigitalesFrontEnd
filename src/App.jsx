@@ -1,10 +1,11 @@
 // Importa los estilos y los componentes necesarios
 
 import { Routes, Route } from 'react-router-dom';
-
+import RequireAuth from './components/RequireAuth/RequireAuth';
 import PanelPages from "./Pages/PanelPages";
-
+import Login from './components/Login/Login';
 import Navbar from "./components/Navbar/Navbar"
+
 
 
 const App = () => (
@@ -13,11 +14,22 @@ const App = () => (
 <div>
 <Navbar />
     <Routes>
-      {/* Ruta principal que muestra la página de inicio con todos los componentes */}
-      <Route path="/" element={<PanelPages />} />
-      
     
-    </Routes></div>
+    
+      <Route path="/" element={<Login />} />  
+      
+      <Route path="/panel" element={
+    <RequireAuth>
+<PanelPages/>
+    
+    </RequireAuth>
+
+      } />
+
+
+
+    </Routes>
+    </div>
  
 );
 

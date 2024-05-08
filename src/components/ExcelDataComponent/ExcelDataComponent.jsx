@@ -23,7 +23,7 @@ const ExcelDataComponent = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get('https://auditoriaactivosdigitalesbackend.onrender.com/datos').catch(error => console.error('Error fetching Excel data', error));
+            const response = await axios.get('https://auditoriaactivosdigitalesbackend.onrender.com/data').catch(error => console.error('Error fetching Excel data', error));
             if (response && response.data) {
                 console.log('Respuesta del servidor:', response.data);
                 setExcelData(response.data);
